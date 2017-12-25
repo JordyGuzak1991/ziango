@@ -6,7 +6,8 @@ export default class extends Phaser.Sprite {
         this.anchor.setTo(0.5)
         this.scale.setTo(scale, scale)
         this.game.physics.p2.enable(this)
-        this.body.setCircle(50);
+        console.log(scale)
+        this.body.setCircle(this.width / 2);
         this.body.damping = 0.5
         this.game.add.existing(this)
     }

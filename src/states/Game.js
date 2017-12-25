@@ -20,12 +20,6 @@ export default class extends Phaser.State {
     this.ballsHit = []
   }
   preload () {
-    this.game.scale.scaleMode = Phaser.ScaleManager.RESIZE
-    this.game.scale.pageAlignHorizontally = true;
-    this.game.scale.pageAlignVertically = true;
-    this.game.canvas.style.width = '100%';
-    this.game.canvas.style.height = '100%';
-    this.game.scale.refresh()
   }
 
   create () {
@@ -51,7 +45,7 @@ export default class extends Phaser.State {
       x: this.world.centerX,
       y: this.world.centerY,
       asset: 'white-ball',
-      scale: config.scaleRatio / 6
+      scale: config.scaleRatio() / 6
     })
 
     this.whiteBall.body.setCollisionGroup(whiteballCollisionGroup)
@@ -70,7 +64,7 @@ export default class extends Phaser.State {
         x: randomPosition.x,
         y: randomPosition.y,
         asset: asset,
-        scale: (asset == 'orange-ball') ? config.scaleRatio / 2 : config.scaleRatio
+        scale: (asset == 'orange-ball') ? config.scaleRatio() / 2 : config.scaleRatio()
       })
       
       ball.body.setCollisionGroup(ballsCollisionGroup)
