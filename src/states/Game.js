@@ -19,7 +19,14 @@ export default class extends Phaser.State {
     this.message
     this.ballsHit = []
   }
-  preload () {}
+  preload () {
+    this.game.scale.scaleMode = Phaser.ScaleManager.RESIZE
+    this.game.scale.pageAlignHorizontally = true;
+    this.game.scale.pageAlignVertically = true;
+    this.game.canvas.style.width = '100%';
+    this.game.canvas.style.height = '100%';
+    this.game.scale.refresh()
+  }
 
   create () {
     // Enable p2 physics
